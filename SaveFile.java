@@ -2,11 +2,8 @@ import java.io.*;
 
 public class SaveFile {
 
-    InputUsers iu = new InputUsers();
-
-
     public void save(String fileName, User[] arrayUsers, int curUsers){
-        File f = new File(iu.fileName);
+        File f = new File(fileName);
 
         try(ObjectOutputStream oos = new ObjectOutputStream(
                 new BufferedOutputStream (

@@ -21,8 +21,12 @@ public class User implements Serializable {
         this.role = role;
     }
 
+    public String getFullName(){
+        return fullName;
+    }
+
     public String toString() {
-        return fullName + "[" +
+        return fullName + " [" +
                 "Username = " + username + ", " +
                 "Password = " + password + ", " +
                 "Role = " + (role == 1? "admin" : "user") +
