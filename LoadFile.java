@@ -1,5 +1,3 @@
-package exercise05;
-
 import java.io.*;
 import java.lang.ClassNotFoundException;
 import java.util.ArrayList;
