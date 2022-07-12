@@ -1,6 +1,12 @@
+package exercise05;
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        InputUsers user = new InputUsers();
-        user.input();
+        try(Scanner scanner = new Scanner(System.in)) {
+            InputUsers user = new InputUsers();
+            user.input(scanner);
+        }
     }
 }

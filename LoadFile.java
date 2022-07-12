@@ -1,24 +1,27 @@
+package exercise05;
+
 import java.io.*;
 import java.lang.ClassNotFoundException;
+import java.util.ArrayList;
 
 public class LoadFile {
 
 
-    public int load(String fileName, User[] arrayUsers){
+    public void load(String fileName, ArrayList<User> user){
 
         File f = new File(fileName);
 
-        int count = 0;
-        try(ObjectInputStream ois = new ObjectInputStream(
+        try(ObjectInputStream in = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream(f))))
         {
-            while(true) {
-                arrayUsers[count] = (User) ois.readObject();
-                count++;
+            while(true/*in.available()>0*/)
+                user.add((User) in.readObject());
+        }
+        catch(IOException | ClassNotFoundException e) {
+            if (!(e instanceof EOFException)) {
+                throw new RuntimeException(e);
             }
-        } catch(IOException | ClassNotFoundException e) {
-            return count;
         }
 
     }

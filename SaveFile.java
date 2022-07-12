@@ -1,21 +1,22 @@
+package exercise05;
+
 import java.io.*;
+import java.util.ArrayList;
 
 public class SaveFile {
 
-    public void save(String fileName, User[] arrayUsers, int curUsers){
+    public void save(String fileName, ArrayList<User> user) {
         File f = new File(fileName);
 
-        try(ObjectOutputStream oos = new ObjectOutputStream(
-                new BufferedOutputStream (
-                    new FileOutputStream(f))))
+        try (ObjectOutputStream out = new ObjectOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream(f))))
         {
-            for (int i = 0; i < curUsers; i++) {
-                oos.writeObject(arrayUsers[i]);
-            }
-
-        } catch(IOException e){
+            for(var value: user) out.writeObject(value);
+        }
+        catch (IOException e) {
             System.err.println(e);
         }
-
     }
 }
+

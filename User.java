@@ -1,3 +1,5 @@
+package exercise05;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -7,8 +9,8 @@ public class User implements Serializable {
     private String password;
     private int role;
 
-    public User() {
-    }
+ /*   public User() {
+    }*/
 
 
     public User(String fullName,
@@ -25,6 +27,10 @@ public class User implements Serializable {
         return fullName;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     public String toString() {
         return fullName + " [" +
                 "Username = " + username + ", " +
@@ -32,7 +38,5 @@ public class User implements Serializable {
                 "Role = " + (role == 1? "admin" : "user") +
                 "]";
     }
-
-
     }
 
